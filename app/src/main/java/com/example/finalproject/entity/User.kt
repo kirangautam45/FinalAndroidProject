@@ -26,4 +26,26 @@ data class User(
     ) {
         userId = parcel.readInt()
     }
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(fname)
+        parcel.writeString(lname)
+        parcel.writeString(address)
+        parcel.writeString(phone)
+        parcel.writeString(user)
+        parcel.writeString(password)
+        parcel.writeInt(userId)
+    }
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<User> {
+        override fun createFromParcel(parcel: Parcel): User {
+            return User(parcel)
+        }
+
+        override fun newArray(size: Int): Array<User?> {
+            return arrayOfNulls(size)
+        }
+    }
 }
