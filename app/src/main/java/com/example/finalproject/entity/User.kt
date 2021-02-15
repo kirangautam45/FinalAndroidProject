@@ -1,5 +1,9 @@
 package com.example.finalproject.entity
 
+import android.os.Parcel
+import android.os.Parcelable
+import androidx.room.PrimaryKey
+
 data class User(
     var fname : String? = null,
     var lname : String? = null,
@@ -8,4 +12,18 @@ data class User(
     var user : String? = null,
     var password : String? = null
 
-)
+): Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    var userId: Int = 0
+
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
+    ) {
+        userId = parcel.readInt()
+    }
+}
