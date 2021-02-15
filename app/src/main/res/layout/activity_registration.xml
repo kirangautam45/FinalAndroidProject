@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity"
+    android:background="@color/cardview_light_background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:background="@color/darkblue"
+        >
+        <TextView
+
+            android:textSize="50dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Registration"
+            android:textColor="@color/ligntblue"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/registration"
+            android:paddingTop="10dp"/>
+
+        <EditText
+            android:id="@+id/Fname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" First name"
+            android:inputType="text"
+            android:textColorHint="@color/red"/>
+
+        <EditText
+            android:id="@+id/Lname"
+            android:textColorHint="@color/red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Last name"
+            android:inputType="text" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Username"
+            android:inputType="text"
+            android:hint="User name"
+            android:textColorHint="@color/red"
+            />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="  Address "
+            android:inputType="text"
+            android:textColorHint="@color/red"/>
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="phone "
+            android:inputType="phone"
+            android:textColorHint="@color/red"/>
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Password "
+            android:inputType="textPassword"
+            android:textColorHint="@color/red"/>
+
+        <EditText
+            android:id="@+id/ConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Confirm Password "
+            android:inputType="textPassword"
+            android:textColorHint="@color/red"/>
+
+        <Button
+            android:id="@+id/btnAdduser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text=" Sign Up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edConfirmPassword" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
