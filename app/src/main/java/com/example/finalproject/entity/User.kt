@@ -2,8 +2,9 @@ package com.example.finalproject.entity
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+@Entity
 data class User(
     var fname : String? = null,
     var lname : String? = null,

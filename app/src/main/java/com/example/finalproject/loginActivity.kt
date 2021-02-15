@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.finalproject.db.UserDB
+import com.example.finalproject.entity.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -72,14 +74,18 @@ class loginActivity : AppCompatActivity() {
                 .getUserDAO().checkUser(U_name, U_password)
 
             if (user == null) {
-                withContext(Dispatchers.Main){
-                    Toast.makeText( this@loginActivity, "Invalid credentials",
-                        Toast.LENGTH_SHORT)
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@loginActivity, "Invalid credentials",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
 
-            } else{
-                val intent=(Intent(this@loginActivity,DashboardActivity::class.java))
+            } else {
+                val intent = (Intent(this@loginActivity, DashboardActivity::class.java))
                 startActivity(intent)
+            }
+        }
     }
-}
+    }
