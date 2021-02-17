@@ -14,4 +14,11 @@ object ServiceBuilder {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okhttp.build())
+    //create retrofit instance
+    private val retrofit = retrofitBuilder.build()
+    //generic function
+    fun<T> buildService(serviceType:Class<T>):T{
+        return retrofit.create(serviceType)
+    }
+
 }
