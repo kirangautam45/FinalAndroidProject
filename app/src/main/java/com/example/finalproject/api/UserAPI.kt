@@ -10,19 +10,24 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface UserAPI {
+    //insert user information
     @POST("user/insert/")
     suspend fun addUser(
             @Header("Authorization") token: String,
             @Body user: User
 
     ):Response<AddUserRespone>
+
+    //get all user information
 @GET("user/update/")
 suspend fun getAllUser(
         @Header("Authorization") token:String,
 ):Response<GetAllUserResponse>
-@Delete("user/delete/{id}")
+
+//delete user
+@DELETE("user/delete/")
 suspend fun deleteuser(
-        @Header("Authrozation")token: String,
+        @Header("Authorization")token: String,
         @Path("id")id:String
 ):Response<DeleteUserRespone>
 
