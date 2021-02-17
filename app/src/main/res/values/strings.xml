@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">finalproject</string>
+    <string name="username">Username</string>
+    <string name="remember_username">Remember Username</string>
 </resources>

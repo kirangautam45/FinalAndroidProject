@@ -12,7 +12,9 @@ import com.example.finalproject.entity.User
     version = 1
 )
 abstract class UserDB:RoomDatabase() {
+
     abstract fun getUserDAO(): UserDAO
+
     companion object{
         @Volatile
         private var instance:UserDB?=null

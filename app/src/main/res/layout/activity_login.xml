@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/white"
-            android:hint="Username"
+            android:hint="@string/username"
             android:textSize="30sp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -43,13 +43,14 @@
             android:background="@color/white"
             android:hint="password"
             android:inputType="textPassword"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            tools:ignore="HardcodedText" />
     </com.google.android.material.textfield.TextInputLayout>
     <CheckBox
         android:layout_margin="20dp"
         android:layout_gravity="left"
         android:id="@+id/chkRememberMe"
-        android:text="Remember Username"
+        android:text="@string/remember_username"
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
