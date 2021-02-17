@@ -10,6 +10,6 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#D7DF01"
+        android:background="#C33B24"
         android:src="@drawable/splash" />
 </LinearLayout>
