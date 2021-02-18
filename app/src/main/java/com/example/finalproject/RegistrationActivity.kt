@@ -15,7 +15,6 @@ import kotlinx.coroutines.withContext
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var Fname : EditText
     private lateinit var Lname: EditText
-    private lateinit var Username: EditText
     private lateinit var Address: EditText
     private lateinit var Phone: EditText
     private lateinit var Password: EditText
@@ -27,7 +26,6 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         Fname=findViewById(R.id.Fname)
         Lname=findViewById(R.id.Lname)
-        Username=findViewById(R.id.Username)
         Address=findViewById(R.id.Address)
         Phone=findViewById(R.id.Phone)
         Password=findViewById(R.id.Password)
@@ -39,7 +37,6 @@ class RegistrationActivity : AppCompatActivity() {
             val lname=Lname.text.toString()
             val address = Address.text.toString()
             val phone = Phone.text.toString()
-            val username = Username.text.toString()
             val password =Password.text.toString()
             val confirmpassword = ConfirmPassword.text.toString()
 
@@ -48,7 +45,7 @@ class RegistrationActivity : AppCompatActivity() {
                 Password.requestFocus()
                 return@setOnClickListener }
             else {
-                val user= User(fname,lname,address,phone,username,password)
+                val user= User(fname,lname,address,phone,password)
                 CoroutineScope(Dispatchers.IO).launch { UserDB
                     .getInstance(this@RegistrationActivity)
                     .getUserDAO()

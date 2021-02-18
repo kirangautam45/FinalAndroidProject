@@ -60,7 +60,7 @@ class loginActivity : AppCompatActivity() {
         val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
         val phone = sharePref.getString("phone", "")
         val Password = sharePref.getString("password", "")
-        Toast.makeText(this, "Username :$phone and password :$Password", Toast.LENGTH_SHORT)
+        Toast.makeText(this, "Phone :$phone and password :$Password", Toast.LENGTH_SHORT)
             .show()
     }
 
