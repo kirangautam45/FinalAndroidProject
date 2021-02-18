@@ -10,7 +10,7 @@ data class User(
     var lname : String? = null,
     var address: String? = null,
     var phone: String? = null,
-    var user : String? = null,
+
     var password : String? = null
 
 ): Parcelable {
@@ -18,7 +18,6 @@ data class User(
     var userId: Int = 0
 
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -32,7 +31,6 @@ data class User(
         parcel.writeString(lname)
         parcel.writeString(address)
         parcel.writeString(phone)
-        parcel.writeString(user)
         parcel.writeString(password)
         parcel.writeInt(userId)
     }

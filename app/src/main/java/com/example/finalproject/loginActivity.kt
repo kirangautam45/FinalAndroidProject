@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class loginActivity : AppCompatActivity() {
-    private lateinit var Username: EditText
+    private lateinit var phone: EditText
     private lateinit var Password: EditText
     private lateinit var btnlogin: Button
     private lateinit var register: TextView
@@ -23,11 +23,11 @@ class loginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        Username = findViewById(R.id.Username)
+        phone = findViewById(R.id.Phone)
         Password = findViewById(R.id.Password)
         btnlogin = findViewById(R.id.btnLogin)
         register = findViewById(R.id.register)
-        Username.setText("")
+        phone.setText("")
         Password.setText("")
         btnlogin.setOnClickListener {
             saveSharePref()
@@ -38,18 +38,18 @@ class loginActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@loginActivity,
-                    SplashActivity::class.java
+                    RegistrationActivity::class.java
                 )
             )
         }
 
     }
     private fun saveSharePref() {
-        val Username = Username.text.toString()
+        val phone = phone.text.toString()
         val Password = Password.text.toString()
         val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
         val editor = sharePref.edit()
-        editor.putString("username", Username)
+        editor.putString("phone", phone)
         editor.putString("password", Password)
         editor.apply()
         Toast.makeText(this@loginActivity, "Username and Password saved", Toast.LENGTH_SHORT).show()
@@ -58,20 +58,20 @@ class loginActivity : AppCompatActivity() {
 
     private fun getSharedPref() {
         val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
-        val Username = sharePref.getString("username", "")
+        val phone = sharePref.getString("phone", "")
         val Password = sharePref.getString("password", "")
-        Toast.makeText(this, "Username :$Username and password :$Password", Toast.LENGTH_SHORT)
+        Toast.makeText(this, "Username :$phone and password :$Password", Toast.LENGTH_SHORT)
             .show()
     }
 
     private fun login() {
-        val U_name = Username.text.toString()
+        val phone = phone.text.toString()
         val U_password = Password.text.toString()
 
         var user: User? = null
         CoroutineScope(Dispatchers.IO).launch {
             user = UserDB.getInstance(this@loginActivity)
-                .getUserDAO().checkUser(U_name, U_password)
+                .getUserDAO().checkUser(phone, U_password)
 
             if (user == null) {
                 withContext(Dispatchers.Main) {

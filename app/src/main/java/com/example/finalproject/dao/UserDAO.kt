@@ -15,6 +15,6 @@ interface UserDAO {
     suspend fun deleteUser(user: User)
 
 
-    @Query(value = "select * from User where user=(:username) and password=(:password)")
-    suspend fun checkUser(username:String,password:String):User
+    @Query(value = "select * from User where phone =(:phone) and password=(:password)")
+    suspend fun checkUser(phone:String,password:String):User
 }

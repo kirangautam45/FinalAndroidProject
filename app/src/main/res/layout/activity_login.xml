@@ -15,37 +15,28 @@
         android:scaleType="fitXY"
         android:src="@drawable/signup" />
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Username"
+        <EditText
+            android:id="@+id/Phone"
             android:layout_marginTop="10dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:inputType="number"
             android:background="@color/white"
-            android:hint="@string/username"
+            android:hint="Phone Number"
             android:textSize="30sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
+  <EditText
             android:id="@+id/Password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/white"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:textSize="30sp"
-            tools:ignore="HardcodedText" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:textSize="30sp" />
+
     <CheckBox
         android:layout_margin="20dp"
         android:layout_gravity="left"

@@ -45,14 +45,6 @@
             android:layout_height="wrap_content"
             android:hint=" Last name"
             android:inputType="text" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Username"
-            android:inputType="text"
-            android:hint="User name"
-            android:textColorHint="@color/red"
-            />
 
         <EditText
             android:id="@+id/Address"

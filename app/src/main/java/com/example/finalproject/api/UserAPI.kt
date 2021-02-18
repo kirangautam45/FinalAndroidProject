@@ -19,7 +19,7 @@ interface UserAPI {
     ):Response<AddUserRespone>
 
     //get all user information
-@GET("user/update/")
+@GET("user/all/")
 suspend fun getAllUser(
         @Header("Authorization") token:String,
 ):Response<GetAllUserResponse>
@@ -30,5 +30,9 @@ suspend fun deleteuser(
         @Header("Authorization")token: String,
         @Path("id")id:String
 ):Response<DeleteUserRespone>
+//user information update
+@PUT("Authorization")
+suspend fun updateUser(
 
+)
 }
