@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.finalproject.db.UserDB
+import com.example.finalproject.api.ServiceBuilder
+//import com.example.finalproject.db.UserDB
 import com.example.finalproject.entity.User
+import com.example.finalproject.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,17 +47,30 @@ class RegistrationActivity : AppCompatActivity() {
                 Password.requestFocus()
                 return@setOnClickListener }
             else {
-                val user= User(fname,lname,address,phone,password)
-                CoroutineScope(Dispatchers.IO).launch { UserDB
-                    .getInstance(this@RegistrationActivity)
-                    .getUserDAO()
-                    .registerUser(user )
-                    //switch to main thread
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@RegistrationActivity,
-                            "user saved", Toast.LENGTH_SHORT)
-                            .show()
+                val user= User(fname=fname,lname=lname,address=address,phone=phone,password=password)
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val repository = UserRepository()
+                        val response = repository.registerUser(user)
+                        if (response.success==true){
+                            ServiceBuilder.token="Bearer "+response.token
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    this@RegistrationActivity,
+                                    "user  added", Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+
+                    }catch (ex: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@RegistrationActivity,
+                                "Username cannot be duplicate", Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
+
                 }
             }
         }

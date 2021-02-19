@@ -7,7 +7,7 @@ import com.example.finalproject.entity.User
 import com.example.finalproject.respone.LoginResponse
 
 class UserRepository:MyApiRequest() {
-    private val userAPI = ServiceBuilder.buildService(UserAPI::class.java)
+     val userAPI = ServiceBuilder.buildService(UserAPI::class.java)
 
     //user registration
     suspend fun registerUser(user: User):LoginResponse{

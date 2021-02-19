@@ -8,14 +8,13 @@ import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.example.finalproject.api.ServiceBuilder
-import com.example.finalproject.db.UserDB
-import com.example.finalproject.entity.User
+
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
+
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.Dispatcher
@@ -46,7 +45,7 @@ class loginActivity : AppCompatActivity() {
         checkRunTimePermission()
 
         btnlogin.setOnClickListener {
-//            saveSharePref()
+//           saveSharePref()
             login()
         }
         register.setOnClickListener {
@@ -85,6 +84,8 @@ class loginActivity : AppCompatActivity() {
         }
         return hasPermission
     }
+
+
     private fun login(){
         val phone = phone.text.toString()
         val password = Password.text.toString()
@@ -92,7 +93,7 @@ class loginActivity : AppCompatActivity() {
             try {
                 val repository = UserRepository()
                 val response= repository.loginUser(phone,password)
-                if(response.message ==true){
+                if(response.success ==true){
                     ServiceBuilder.token ="Bearer " + response.token
                     startActivity(
                         Intent(
@@ -118,7 +119,7 @@ class loginActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                         this@loginActivity,
-                        "Login error", Toast.LENGTH_SHORT
+                        ex.toString(), Toast.LENGTH_SHORT
                     ).show()
                 }
             }
