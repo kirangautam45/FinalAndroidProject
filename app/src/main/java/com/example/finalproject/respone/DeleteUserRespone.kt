@@ -1,6 +1,6 @@
 package com.example.finalproject.respone
 
 class DeleteUserRespone(
-        val success :Boolean?=null
+        val message :Boolean?=null
 
     )

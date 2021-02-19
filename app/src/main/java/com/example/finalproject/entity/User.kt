@@ -10,7 +10,6 @@ data class User(
     var lname : String? = null,
     var address: String? = null,
     var phone: String? = null,
-
     var password : String? = null
 
 ): Parcelable {
