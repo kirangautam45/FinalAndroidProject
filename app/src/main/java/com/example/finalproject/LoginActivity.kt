@@ -17,16 +17,15 @@ import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 
-class loginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     private val permissions = arrayOf(
         android.Manifest.permission.CAMERA,
         android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
         android.Manifest.permission.ACCESS_FINE_LOCATION
     )
     private lateinit var phone: EditText
-    private lateinit var Password: EditText
+    private lateinit var password: EditText
     private lateinit var btnlogin: Button
     private lateinit var chkRememberMe: CheckBox
     private lateinit var register: TextView
@@ -37,7 +36,7 @@ class loginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         phone = findViewById(R.id.Phone)
-        Password = findViewById(R.id.Password)
+        password = findViewById(R.id.Password)
         btnlogin = findViewById(R.id.btnLogin)
         register = findViewById(R.id.register)
         chkRememberMe = findViewById(R.id.chkRememberMe)
@@ -51,7 +50,7 @@ class loginActivity : AppCompatActivity() {
         register.setOnClickListener {
             startActivity(
                 Intent(
-                    this@loginActivity,
+                    this@LoginActivity,
                     RegistrationActivity::class.java
                 )
             )
@@ -66,7 +65,7 @@ class loginActivity : AppCompatActivity() {
     }
 
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(this@loginActivity, permissions, 1)
+        ActivityCompat.requestPermissions(this@LoginActivity, permissions, 1)
 
     }
 
@@ -88,7 +87,7 @@ class loginActivity : AppCompatActivity() {
 
     private fun login(){
         val phone = phone.text.toString()
-        val password = Password.text.toString()
+        val password = password.text.toString()
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val repository = UserRepository()
@@ -97,7 +96,7 @@ class loginActivity : AppCompatActivity() {
                     ServiceBuilder.token ="Bearer " + response.token
                     startActivity(
                         Intent(
-                            this@loginActivity,
+                            this@LoginActivity,
                             DashboardActivity::class.java
                         )
                     )
@@ -118,7 +117,7 @@ class loginActivity : AppCompatActivity() {
             } catch (ex: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@loginActivity,
+                        this@LoginActivity,
                         ex.toString(), Toast.LENGTH_SHORT
                     ).show()
                 }

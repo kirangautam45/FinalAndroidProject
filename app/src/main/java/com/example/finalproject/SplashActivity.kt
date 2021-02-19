@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
 
             startActivity(
                 Intent(this@SplashActivity,
-                    loginActivity::class.java
+                    LoginActivity::class.java
                 )
             )
             finish()
