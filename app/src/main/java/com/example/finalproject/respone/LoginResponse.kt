@@ -1,7 +1,7 @@
 package com.example.finalproject.respone
 
-class LoginResponse {
+class LoginResponse (
     val message: Boolean?=null,
-            val token :String?=null
+    val token :String?=null
+)
 
-}

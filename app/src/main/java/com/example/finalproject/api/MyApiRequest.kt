@@ -2,12 +2,11 @@ package com.example.finalproject.api
 
 import org.json.JSONException
 import org.json.JSONObject
-import retrofit2.Response
 import java.io.IOException
 import java.lang.StringBuilder
 
 abstract class MyApiRequest {
-    suspend fun <T:Any>apiRequest(call :suspend ()->Response<T>):T{
+    suspend fun <T:Any>apiRequest(call: suspend () -> Unit):T{
         val response = call.invoke()
         if(response.isSuccessful){
             return response.body()!!
