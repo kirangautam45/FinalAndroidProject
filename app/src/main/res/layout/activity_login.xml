@@ -11,32 +11,37 @@
     android:background="@color/teal_700">
 
     <ImageView
-        android:layout_width="180dp"
-        android:layout_height="170dp"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:src="@drawable/signup" />
 
-        <EditText
-            android:id="@+id/Phone"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:inputType="number"
-            android:background="@color/white"
-            android:hint="Phone Number"
-            android:textSize="30sp" />
+    <EditText
+        android:id="@+id/Phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ellipsize="middle"
+        android:hint="Phone Number"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textSize="30sp" />
   <EditText
-            android:id="@+id/Password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/white"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textSize="30sp" />
+      android:id="@+id/Password"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Password"
+      android:inputType="textPassword"
+      android:layout_margin="10dp"
+      android:layout_marginTop="10dp"
+      android:background="@color/white"
+      android:ellipsize="middle"
+      android:padding="10dp"
+      android:textSize="30sp"/>
 
     <CheckBox
         android:layout_margin="20dp"
