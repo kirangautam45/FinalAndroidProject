@@ -8,13 +8,10 @@ import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.example.finalproject.api.ServiceBuilder
-
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -65,7 +62,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(this@LoginActivity, permissions, 1)
+        ActivityCompat.requestPermissions(this@LoginActivity,
+                permissions, 1)
 
     }
 

@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    tools:context=".fragment.AboutFragment">
 
-    <FrameLayout
+    <fragment
+        android:id="@+id/google_map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AboutFragment">
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Welcome to about "
-            android:gravity="center"/>
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_height="match_parent"/>
 
-    </FrameLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/Navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="3dp"
-        android:background="#0B304C"
-        app:itemTextColor="@color/lightgreen"
-        app:itemIconTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/button_nav_menu" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

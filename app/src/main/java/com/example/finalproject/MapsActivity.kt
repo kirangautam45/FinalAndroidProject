@@ -2,7 +2,6 @@ package com.example.finalproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,6 +13,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,21 +35,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-
-
         // Add a marker in Sydney and move the camera
         mMap.addMarker(
-                MarkerOptions().position(LatLng(27.699770, 85.336220))
-                        .title("")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
-                        )
-
-
+            MarkerOptions().position(LatLng(27.0449005, 84.8672171))
+                .title("our furniture product")
+                .icon(BitmapDescriptorFactory.defaultMarker
+                (BitmapDescriptorFactory.HUE_BLUE)
+                )
         )
         mMap.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(LatLng(27.699770, 85.336220),15F),4000,null
+            CameraUpdateFactory.newLatLngZoom
+            (LatLng(27.0449005, 84.8672171),15F),4000,null
         )
         mMap.uiSettings.isZoomControlsEnabled=true
     }
+
+
+
 }
+
