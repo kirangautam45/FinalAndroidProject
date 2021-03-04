@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,15 +6,13 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity"
-    android:background="@color/cardview_light_background">
+    tools:context=".RegistrationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height= "match_parent"
-        android:background="@color/darkblue"
-        >
+        android:background="@color/darkblue">
         <TextView
 
             android:textSize="50dp"
@@ -40,7 +37,7 @@
             android:layout_height="wrap_content"
             android:hint=" First name"
             android:inputType="text"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/red"/>
 
         <EditText
             android:id="@+id/Lname"
