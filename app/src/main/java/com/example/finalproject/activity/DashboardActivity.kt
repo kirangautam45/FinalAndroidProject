@@ -1,8 +1,9 @@
-package com.example.finalproject
+package com.example.finalproject.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.finalproject.R
 import com.example.finalproject.fragment.AboutFragment
 import com.example.finalproject.fragment.HomeFragment
 import com.example.finalproject.fragment.ProductFragment
