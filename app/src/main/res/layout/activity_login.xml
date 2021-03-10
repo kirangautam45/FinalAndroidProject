@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:id="@+id/linearLayout"
-    android:background="@color/teal_700">
+    android:background="@color/teal_700"
+    tools:viewBindingIgnore="true" >
 
     <ImageView
         android:layout_width="wrap_content"
@@ -28,9 +29,9 @@
         android:background="@color/white"
         android:ellipsize="middle"
         android:hint="Phone Number"
-        android:inputType="number"
         android:padding="10dp"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:inputType="phone"/>
   <EditText
       android:id="@+id/Password"
       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -43,7 +44,8 @@
       android:background="@color/white"
       android:ellipsize="middle"
       android:padding="10dp"
-      android:textSize="30sp"/>
+      android:textSize="30sp"
+      />
 
     <CheckBox
         android:layout_margin="20dp"

@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:hint=" First name"
             android:inputType="text"
-            android:textColorHint="@color/black"/>
+            android:textColorHint="@color/red"/>
 
         <EditText
             android:id="@+id/Lname"
@@ -93,7 +93,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edConfirmPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/ConfirmPassword" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
