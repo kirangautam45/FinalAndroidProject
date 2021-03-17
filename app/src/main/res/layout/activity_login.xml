@@ -6,53 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity"
     android:orientation="vertical"
-    android:gravity="center"
     android:id="@+id/linearLayout"
-    android:background="@color/teal_700">
+    android:background="@color/cardview_shadow_start_color">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:padding="20dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/signup" />
-
-    <EditText
-        android:id="@+id/Phone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:ellipsize="middle"
-        android:hint="Phone Number"
-        android:inputType="number"
-        android:padding="10dp"
-        android:textSize="30sp" />
-  <EditText
-      android:id="@+id/Password"
-      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="Password"
-      android:inputType="textPassword"
-      android:layout_margin="10dp"
-      android:layout_marginTop="10dp"
-      android:background="@color/white"
-      android:ellipsize="middle"
-      android:padding="10dp"
-      android:textSize="30sp"/>
+        android:layout_gravity="center"
+        android:src="@drawable/singup" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp">
+
+        <EditText
+            android:id="@+id/Phone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="25sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp">
+
+        <EditText
+            android:id="@+id/Password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/password"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:background="@color/white"
+            android:singleLine="true"
+            android:textSize="25sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
-        android:layout_margin="20dp"
-        android:layout_gravity="left"
         android:id="@+id/chkRememberMe"
-        android:text="@string/remember_username"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="20dp"
+        android:text="remember username"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -70,6 +81,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="NO account? signup here."
+        android:textColor="@color/red"
         android:textSize="20sp" />
 
 

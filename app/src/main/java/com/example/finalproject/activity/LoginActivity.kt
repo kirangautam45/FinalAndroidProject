@@ -1,5 +1,6 @@
 package com.example.finalproject.activity
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.example.finalproject.R
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,9 +20,9 @@ import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
     private val permissions = arrayOf(
-        android.Manifest.permission.CAMERA,
-        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        android.Manifest.permission.ACCESS_FINE_LOCATION
+            android.Manifest.permission.CAMERA,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            android.Manifest.permission.ACCESS_FINE_LOCATION
     )
     private lateinit var phone: EditText
     private lateinit var password: EditText
@@ -42,15 +44,16 @@ class LoginActivity : AppCompatActivity() {
         checkRunTimePermission()
 
         btnlogin.setOnClickListener {
-//           saveSharePref()
             login()
         }
         register.setOnClickListener {
+
+
             startActivity(
-                Intent(
-                    this@LoginActivity,
-                    RegistrationActivity::class.java
-                )
+                    Intent(
+                            this@LoginActivity,
+                            RegistrationActivity::class.java
+                    )
             )
         }
 
@@ -72,9 +75,9 @@ class LoginActivity : AppCompatActivity() {
         var hasPermission = true
         for (permission in permissions) {
             if (ActivityCompat.checkSelfPermission(
-                    this,
-                    permission
-                ) != PackageManager.PERMISSION_GRANTED
+                            this,
+                            permission
+                    ) != PackageManager.PERMISSION_GRANTED
             ) {
                 hasPermission = false
                 break
@@ -84,90 +87,66 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun login(){
+    private fun login() {
+        saveSharePref()
         val phone = phone.text.toString()
         val password = password.text.toString()
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val repository = UserRepository()
-                val response= repository.loginUser(phone,password)
-                if(response.success ==true){
-                    ServiceBuilder.token ="Bearer " + response.token
+                val response = repository.loginUser(phone, password)
+                if (response.success == true) {
+                    ServiceBuilder.token = "Bearer " + response.token
                     startActivity(
-                        Intent(
-                            this@LoginActivity,
-                            DashboardActivity::class.java
-                        )
+                            Intent(
+                                    this@LoginActivity,
+                                    DashboardActivity::class.java
+                            )
                     )
                     finish()
-                } else{
-                    withContext(Dispatchers.Main){
+                } else {
+                    withContext(Dispatchers.Main) {
                         val snack =
-                            Snackbar.make(
-                                linearLayout,"Invalid Credentials",
-                                Snackbar.LENGTH_LONG
-                            )
+                                Snackbar.make(
+                                        linearLayout, "Invalid Credentials",
+                                        Snackbar.LENGTH_LONG
+                                )
                         snack.setAction("ok", View.OnClickListener {
                             snack.dismiss()
                         })
-                    snack.show()
+                        snack.show()
                     }
                 }
             } catch (ex: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@LoginActivity,
-                        ex.toString(), Toast.LENGTH_SHORT
+                            this@LoginActivity,
+                            ex.toString(), Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         }
     }
+
+
+    private fun saveSharePref() {
+        val phone = phone.text.toString()
+        val Password = Password.text.toString()
+        val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
+        val editor = sharePref.edit()
+        editor.putString("phone", phone)
+        editor.putString("password", Password)
+        editor.apply()
+        Toast.makeText(this@LoginActivity, "Username and Password saved", Toast.LENGTH_SHORT).show()
+
+    }
+
+    private fun getSharedPref() {
+        val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
+        val phone = sharePref.getString("phone", "")
+        val Password = sharePref.getString("password", "")
+        Toast.makeText(this, "Phone :$phone and password :$Password", Toast.LENGTH_SHORT)
+                .show()
+    }
 }
 
-
-//    private fun saveSharePref() {
-//        val phone = phone.text.toString()
-//        val Password = Password.text.toString()
-//        val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
-//        val editor = sharePref.edit()
-//        editor.putString("phone", phone)
-//        editor.putString("password", Password)
-//        editor.apply()
-//        Toast.makeText(this@loginActivity, "Username and Password saved", Toast.LENGTH_SHORT).show()
-//
-//    }
-//
-//    private fun getSharedPref() {
-//        val sharePref = getSharedPreferences("kiranPref", MODE_PRIVATE)
-//        val phone = sharePref.getString("phone", "")
-//        val Password = sharePref.getString("password", "")
-//        Toast.makeText(this, "Phone :$phone and password :$Password", Toast.LENGTH_SHORT)
-//            .show()
-//    }
-
-//    private fun login() {
-//        val phone = phone.text.toString()
-//        val U_password = Password.text.toString()
-//
-//        var user: User? = null
-//        CoroutineScope(Dispatchers.IO).launch {
-//            user = UserDB.getInstance(this@loginActivity)
-//                .getUserDAO().checkUser(phone, U_password)
-//
-//            if (user == null) {
-//                withContext(Dispatchers.Main) {
-//                    Toast.makeText(
-//                        this@loginActivity, "Invalid credentials",
-//                        Toast.LENGTH_SHORT
-//                    )
-//                        .show()
-//                }
-//
-//            } else {
-//                val intent = (Intent(this@loginActivity, DashboardActivity::class.java))
-//                startActivity(intent)
-//            }
-//        }
-//    }
-    //}
