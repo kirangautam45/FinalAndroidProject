@@ -1,6 +1,5 @@
 package com.example.finalproject.activity
 
-import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.example.finalproject.R
+import com.example.finalproject.activity.navigationdrawer.DashboardActivity
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar

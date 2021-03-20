@@ -10,4 +10,7 @@
     <color name="darkblue">#1668a8</color>
     <color name="lightgreen">#CCFFCC</color>
     <color name="red">#923724</color>
+    <color name="colorPrimary">#bc214b</color>
+    <color name="colorPrimaryDark">#9e1c40</color>
+    <color name="colorAccent">#D81B60</color>
 </resources>
