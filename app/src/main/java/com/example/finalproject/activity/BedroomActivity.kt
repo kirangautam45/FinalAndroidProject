@@ -2,7 +2,10 @@ package com.example.finalproject.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finalproject.Adapter.BedroomAdapter
 import com.example.finalproject.R
 import com.example.finalproject.repository.BedroomRepository
 import kotlinx.coroutines.CoroutineScope
@@ -31,13 +34,21 @@ class BedroomActivity : AppCompatActivity() {
                     val lstbedroom = response.data
                     withContext(Main) {
                         recyclerView.adapter =
-                                bedroomAdapter = (this@BedroomActivity, lstbedroom!!)
+                                BedroomAdapter(this@BedroomActivity, lstbedroom!!)
+                        recyclerView.layoutManager =
+                                LinearLayoutManager(this@BedroomActivity)
 
 
                     }
                 }
 
             } catch (ex: Exception) {
+                withContext(Main) {
+                    Toast.makeText(
+                            this@BedroomActivity,
+                            "Error : ${ex.toString()}", Toast.LENGTH_SHORT
+                    ).show()
+                }
 
             }
         }

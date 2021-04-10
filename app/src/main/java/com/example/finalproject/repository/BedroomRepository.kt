@@ -5,6 +5,7 @@ import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.entity.Bedroom
 import com.example.finalproject.response.bedroomrespone.AddBedroomResponse
 import com.example.finalproject.response.bedroomrespone.DeleteBedroomResponse
+import com.example.finalproject.response.bedroomrespone.GetAllBedroomResponse
 
 
 class BedroomRepository : MyApiRequest() {
@@ -20,8 +21,8 @@ class BedroomRepository : MyApiRequest() {
     }
 
 
-    suspend fun getAllBedRoom() {
-        apiRequest {
+    suspend fun getAllBedRoom(): GetAllBedroomResponse {
+        return apiRequest {
             BedroomAPI.getAllBedroom(ServiceBuilder.token!!)
 
         }

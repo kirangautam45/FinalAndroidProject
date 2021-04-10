@@ -44,4 +44,8 @@ class BedroomAdapter(
         val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
 
     }
+
+    override fun getItemCount(): Int {
+        return lstbedroom.size
+    }
 }
