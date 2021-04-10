@@ -1,11 +1,10 @@
 package com.example.finalproject.repository
 
-import androidx.room.*
 import com.example.finalproject.api.MyApiRequest
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.api.UserAPI
 import com.example.finalproject.entity.User
-import com.example.finalproject.respone.LoginResponse
+import com.example.finalproject.response.LoginResponse
 
 class UserRepository:MyApiRequest() {
      val userAPI = ServiceBuilder.buildService(UserAPI::class.java)

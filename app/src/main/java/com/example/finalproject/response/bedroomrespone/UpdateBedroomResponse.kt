@@ -1,4 +1,4 @@
-package com.example.finalproject.respone.bedroomrespone
+package com.example.finalproject.response.bedroomrespone
 
 data class UpdateBedroomResponse(
         val success: Boolean? = null

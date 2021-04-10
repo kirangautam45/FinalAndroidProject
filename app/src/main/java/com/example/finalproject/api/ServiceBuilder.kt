@@ -18,12 +18,19 @@ object ServiceBuilder {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okhttp.build())
-    //create retrofit instance
-    private val retrofit = retrofitBuilder.build()
-    //generic function
-    fun<T> buildService(serviceType:Class<T>):T{
-        return retrofit.create(serviceType)
 
-    }
+  //create retrofit instance
+  private val retrofit = retrofitBuilder.build()
+
+  //generic function
+  fun <T> buildService(serviceType: Class<T>): T {
+    return retrofit.create(serviceType)
+
+  }
+
+  fun loadImagePath(): Any {
+    val arr = BASE_URL.split("/").toTypedArray()
+    return arr[0] + "/" + arr[1] + arr[2] + "/files/"
+  }
 
 }

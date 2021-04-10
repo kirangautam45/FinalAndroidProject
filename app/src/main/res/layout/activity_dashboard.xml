@@ -76,7 +76,7 @@
             android:layout_marginBottom="5dp"
             android:padding="10dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/welcome"
+            android:src="@drawable/star"
             tools:ignore="ContentDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -84,7 +84,9 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:scrollbarThumbHorizontal="@null"
-            android:scrollbarThumbVertical="@null"></androidx.recyclerview.widget.RecyclerView>
+            android:scrollbarThumbVertical="@null">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <TextView
             android:layout_width="match_parent"

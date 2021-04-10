@@ -1,4 +1,4 @@
-package com.example.finalproject.respone
+package com.example.finalproject.response
 
 class LoginResponse (
     val success: Boolean?=null,

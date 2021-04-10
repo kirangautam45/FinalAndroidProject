@@ -8,7 +8,7 @@ import com.example.finalproject.R
 class DashboardActivity : AppCompatActivity() {
 
     lateinit var drawerLayout: DrawerLayout
-
+    private lateinit var adapter: NavigationRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

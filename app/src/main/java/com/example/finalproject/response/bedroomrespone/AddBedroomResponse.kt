@@ -1,4 +1,4 @@
-package com.example.finalproject.respone.bedroomrespone
+package com.example.finalproject.response.bedroomrespone
 
 import com.example.finalproject.entity.Bedroom
 

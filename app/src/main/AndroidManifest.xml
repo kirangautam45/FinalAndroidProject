@@ -19,6 +19,7 @@
 
     <application
         android:allowBackup="true"
+        android:label="OlineFurnitureApplication"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
