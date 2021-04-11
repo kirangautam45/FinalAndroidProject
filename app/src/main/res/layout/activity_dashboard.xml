@@ -80,6 +80,7 @@
             tools:ignore="ContentDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/navigation_rv"
             android:layout_width="260dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -96,7 +97,8 @@
             android:text="Developed by Kiran Gautam"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
