@@ -1,4 +1,4 @@
-package com.example.finalproject.fragment
+package com.example.finalproject.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,26 +8,22 @@ import android.view.ViewGroup
 import com.example.finalproject.R
 
 
-/**
- * A simple [Fragment] subclass.
- */
-class AboutFragment : Fragment(){
+class DashboardActivity : Fragment() {
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        val view = inflater.inflate(R.layout.fragment_dashboard_activity, container, false)
 
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
+        return view
     }
 
 }

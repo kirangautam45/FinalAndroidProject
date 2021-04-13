@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.example.finalproject.R
-import com.example.finalproject.activity.navigationdrawer.DashboardActivity
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
@@ -100,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(
                             Intent(
                                     this@LoginActivity,
-                                    DashboardActivity::class.java
+                                    TabActivity::class.java
                             )
                     )
                     finish()

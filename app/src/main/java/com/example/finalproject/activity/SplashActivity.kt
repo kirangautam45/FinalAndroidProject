@@ -11,7 +11,6 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import com.example.finalproject.R
-import com.example.finalproject.activity.navigationdrawer.DashboardActivity
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.repository.UserRepository
 import kotlinx.coroutines.*
@@ -94,7 +93,7 @@ class SplashActivity : AppCompatActivity() {
                     startActivity(
                             Intent(
                                     this@SplashActivity,
-                                    DashboardActivity::class.java
+                                    TabActivity::class.java
                             )
                     )
                     finish()
