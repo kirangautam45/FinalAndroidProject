@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#425546"
+    android:padding="@dimen/box_inset_layout_padding"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    tools:deviceIds="wear"
+    android:id="@+id/linearLayout"
+    >
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawablePadding="10dp"
+        android:hint="Number"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_marginBottom="10dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:background="@color/white"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

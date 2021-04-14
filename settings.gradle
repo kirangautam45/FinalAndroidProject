@@ -1,2 +1,3 @@
+include ':furniturewear'
 include ':app'
 rootProject.name = "finalproject"

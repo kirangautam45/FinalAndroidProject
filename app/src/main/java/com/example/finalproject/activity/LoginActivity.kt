@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
         val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
                 .setSmallIcon(R.drawable.notification)
                 .setContentTitle("High priority notification")
-                .setContentText("This is my notification body")
+                .setContentText("user has login")
                 .setColor(Color.BLUE)
                 .build()
 
