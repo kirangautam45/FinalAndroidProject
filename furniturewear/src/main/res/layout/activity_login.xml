@@ -8,7 +8,9 @@
     android:padding="@dimen/box_inset_layout_padding"
     android:orientation="vertical"
     tools:context=".LoginActivity"
-    tools:deviceIds="wear">
+    tools:deviceIds="wear"
+    android:id="@+id/linearLayout"
+    >
 
     <EditText
         android:id="@+id/Phone"
