@@ -1,13 +1,17 @@
 package com.example.finalproject.activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.finalproject.R
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.entity.User
+import com.example.finalproject.notification.NotificationChannels
 import com.example.finalproject.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +38,10 @@ class RegistrationActivity : AppCompatActivity() {
         ConfirmPassword=findViewById(R.id.ConfirmPassword)
         btnAdduser=findViewById(R.id.btnAdduser)
 
+
+
         btnAdduser.setOnClickListener {
+            showLowPriorityNotification()
             val fname= Fname.text.toString()
             val lname=Lname.text.toString()
             val address = Address.text.toString()
@@ -74,5 +81,21 @@ class RegistrationActivity : AppCompatActivity() {
                 }
             }
         }
+
+    }
+    private fun showLowPriorityNotification() {
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_2)
+                .setSmallIcon(R.drawable.notification)
+                .setContentTitle("Low priority notification")
+                .setContentText("This is my notification body")
+                .setColor(Color.BLUE)
+                .build()
+
+        notificationManager.notify(2, notification)
     }
 }
