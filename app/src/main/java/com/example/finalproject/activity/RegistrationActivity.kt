@@ -1,5 +1,6 @@
 package com.example.finalproject.activity
 
+import android.app.NotificationChannel
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -86,13 +87,14 @@ class RegistrationActivity : AppCompatActivity() {
     private fun showLowPriorityNotification() {
         val notificationManager = NotificationManagerCompat.from(this)
 
+
         val notificationChannels = NotificationChannels(this)
         notificationChannels.createNotificationChannels()
 
         val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_2)
                 .setSmallIcon(R.drawable.notification)
                 .setContentTitle("Low priority notification")
-                .setContentText("This is my notification body")
+                .setContentText("user has been successfully added")
                 .setColor(Color.BLUE)
                 .build()
 
