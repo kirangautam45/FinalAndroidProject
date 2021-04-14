@@ -2,13 +2,17 @@ package com.example.finalproject.activity
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.finalproject.R
 import com.example.finalproject.api.ServiceBuilder
+import com.example.finalproject.notification.NotificationChannels
 import com.example.finalproject.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnlogin.setOnClickListener {
             login()
+            showHighPriorityNotification()
         }
         register.setOnClickListener {
 
@@ -55,6 +60,23 @@ class LoginActivity : AppCompatActivity() {
                     )
             )
         }
+
+    }
+    private fun showHighPriorityNotification() {
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+                .setSmallIcon(R.drawable.notification)
+                .setContentTitle("High priority notification")
+                .setContentText("This is my notification body")
+                .setColor(Color.BLUE)
+                .build()
+
+        notificationManager.notify(1, notification)
 
     }
 
