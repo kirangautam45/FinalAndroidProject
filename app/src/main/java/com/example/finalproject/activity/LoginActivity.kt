@@ -25,11 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginActivity : AppCompatActivity(), SensorEventListener {
-
-    private lateinit var tvAcceleroemter: TextView
-    private lateinit var sensorManager: SensorManager
-    private var sensor: Sensor? = null
+class LoginActivity : AppCompatActivity() {
 
     private val permissions = arrayOf(
             android.Manifest.permission.CAMERA,
@@ -48,8 +44,6 @@ class LoginActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        tvAcceleroemter = findViewById(R.id.tvAcceleroemter)
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
         phone = findViewById(R.id.Phone)
         password = findViewById(R.id.Password)
@@ -73,33 +67,6 @@ class LoginActivity : AppCompatActivity(), SensorEventListener {
                     )
             )
         }
-
-        if (!checkSensor())
-            return
-        else {
-            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
-        }
-    }
-
-    private fun checkSensor(): Boolean {
-        var flag = true
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) == null) {
-            flag = false
-        }
-        return flag
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        val values = event!!.values
-        val xAxis = values[0]
-        val yAxis = values[1]
-        val zAxis = values[2]
-
-        tvAcceleroemter.text = "x: $xAxis , y: $yAxis , z: $zAxis"
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
     }
 

@@ -41,7 +41,7 @@ class BedroomAdapter(
         holder.describe.text = bedroom.describe
         holder.size.text = bedroom.size
         holder.describe.text = bedroom.describe
-        val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
+       // val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
 
     }
 

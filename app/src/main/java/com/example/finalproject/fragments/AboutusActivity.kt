@@ -18,7 +18,7 @@ import com.example.finalproject.activity.MapsActivity
 class AboutusActivity : Fragment() {
     private lateinit var btnmap:Button
     private lateinit var logout: Button
-    private lateinit var webSite: WebView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class AboutusActivity : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_aboutus_activity, container, false)
-        
+
 
         logout=view.findViewById(R.id.logout)
 
