@@ -55,7 +55,7 @@ class OrderActivity : AppCompatActivity() {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(
                                 this@OrderActivity,
-                                "user  added", Toast.LENGTH_SHORT
+                                "  order request to admin wait for respond", Toast.LENGTH_SHORT
                             ).show()
                         }
                     }
