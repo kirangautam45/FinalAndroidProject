@@ -9,7 +9,7 @@
     tools:context=".fragments.AboutusActivity">
 
 
-   
+
     <Button
         android:id="@+id/btnmap"
         android:layout_width="wrap_content"

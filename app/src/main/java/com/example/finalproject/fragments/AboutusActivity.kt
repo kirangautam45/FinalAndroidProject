@@ -33,14 +33,7 @@ class AboutusActivity : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_aboutus_activity, container, false)
-
-        webSite=view.findViewById(R.id.webSite)
-        webSite.loadUrl("https://pierowayfurniture.com/bedroom/")
-        val webSettings = webSite.getSettings()
-        webSettings.setJavaScriptEnabled(true)
-        btnmap=view.findViewById(R.id.btnmap)
-
-
+        
 
         logout=view.findViewById(R.id.logout)
 
