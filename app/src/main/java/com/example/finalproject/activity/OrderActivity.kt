@@ -1,7 +1,14 @@
 package com.example.finalproject.activity
 
+import android.content.Context
+import android.graphics.Color
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.os.IResultReceiver
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,13 +23,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
-class OrderActivity : AppCompatActivity() {
+class OrderActivity : AppCompatActivity(),SensorEventListener{
     private lateinit var name: EditText
     private lateinit var material: EditText
     private lateinit var cost: EditText
     private lateinit var feature: EditText
     private lateinit var btnOrder: Button
+    private var sensorManager: SensorManager?=null
+    private var sensor: Sensor?=null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
@@ -31,6 +43,10 @@ class OrderActivity : AppCompatActivity() {
         cost = findViewById(R.id.cost)
         feature = findViewById(R.id.featutre)
         btnOrder = findViewById(R.id.btnOrder)
+
+        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+        sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
+
 
 
         btnOrder.setOnClickListener {
@@ -72,4 +88,27 @@ class OrderActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager!!.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL)
+    }
+    override fun onPause() {
+        super.onPause()
+        sensorManager!!.unregisterListener(this)
+    }
+    var isRunning=false
+    override fun onSensorChanged(event: SensorEvent?) {
+        try {
+            if (event!!.values[0] <20 && !isRunning){
+                isRunning=true
+                window.decorView.setBackgroundColor(Color.YELLOW)
+            }else{isRunning = false
+                window.decorView.setBackgroundColor(Color.BLUE)
+            }
+        }catch (e:IOException){}
+    }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    }
+
 }

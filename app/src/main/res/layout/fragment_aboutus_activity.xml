@@ -9,7 +9,6 @@
     tools:context=".fragments.AboutusActivity">
 
 
-
     <Button
         android:id="@+id/btnmap"
         android:layout_width="wrap_content"
@@ -28,6 +27,23 @@
         android:drawableLeft="@drawable/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnAddOrder"
+        android:layout_width="423dp"
+        android:layout_height="66dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="84dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Add Custom Order"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="@+id/btnmap"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

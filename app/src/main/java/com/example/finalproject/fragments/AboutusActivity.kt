@@ -13,11 +13,13 @@ import androidx.core.view.get
 import com.example.finalproject.R
 import com.example.finalproject.activity.LoginActivity
 import com.example.finalproject.activity.MapsActivity
+import com.example.finalproject.activity.OrderActivity
 
 
 class AboutusActivity : Fragment() {
     private lateinit var btnmap:Button
     private lateinit var logout: Button
+    private lateinit var btnAddOrder:Button
 
 
 
@@ -33,6 +35,8 @@ class AboutusActivity : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_aboutus_activity, container, false)
+        btnAddOrder=view.findViewById(R.id.btnAddOrder)
+        btnmap=view.findViewById(R.id.btnmap)
 
 
         logout=view.findViewById(R.id.logout)
@@ -42,7 +46,11 @@ class AboutusActivity : Fragment() {
         }
 
         btnmap.setOnClickListener {
-startActivity(Intent(activity,MapsActivity::class.java))
+        startActivity(Intent(activity,MapsActivity::class.java))
+        }
+        btnAddOrder.setOnClickListener {
+            startActivity(Intent(activity,OrderActivity::class.java))
+
         }
 
 

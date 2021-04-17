@@ -1,7 +1,13 @@
 package com.example.finalproject.activity
 
 import android.app.NotificationChannel
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -19,7 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity : AppCompatActivity(),SensorEventListener {
     private lateinit var Fname : EditText
     private lateinit var Lname: EditText
     private lateinit var Address: EditText
@@ -27,6 +33,11 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var Password: EditText
     private lateinit var ConfirmPassword: EditText
     private lateinit var btnAdduser: Button
+    private var sensorManager: SensorManager?=null
+    private var sensor: Sensor?=null
+    private var mAccel = 0f
+    private var mAccelCurrent = 0f
+    private var mAccelLast = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +49,12 @@ class RegistrationActivity : AppCompatActivity() {
         Password=findViewById(R.id.Password)
         ConfirmPassword=findViewById(R.id.ConfirmPassword)
         btnAdduser=findViewById(R.id.btnAdduser)
+
+        sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
+        sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        mAccel = 10f;
+        mAccelCurrent = SensorManager.GRAVITY_EARTH;
+        mAccelLast = SensorManager.GRAVITY_EARTH;
 
 
 
@@ -99,5 +116,32 @@ class RegistrationActivity : AppCompatActivity() {
                 .build()
 
         notificationManager.notify(2, notification)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager!!.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+    }
+    override fun onPause() {
+        super.onPause()
+        sensorManager!!.unregisterListener(this)
+    }
+    override fun onSensorChanged(event: SensorEvent?) {
+        val x: Float = event!!.values[0]
+        val y: Float = event!!.values[1]
+        val z: Float = event!!.values[2]
+        mAccelLast = mAccelCurrent
+        mAccelCurrent = Math.sqrt((x * x + y * y + z * z).toDouble()).toFloat()
+        val delta: Float = mAccelCurrent - mAccelLast
+        mAccel = mAccel * 0.9f + delta
+        if (mAccel > 12) {
+            loginactivity()
+        }
+    }
+    private fun loginactivity() {
+        val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+        startActivity(intent)
+    }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
 }
