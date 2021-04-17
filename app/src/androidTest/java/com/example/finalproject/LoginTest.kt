@@ -8,12 +8,10 @@ import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.filters.LargeTest
 import com.example.finalproject.activity.LoginActivity
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
+
 
 
 
@@ -36,7 +34,7 @@ import org.junit.runners.JUnit4
 
             Thread.sleep(3000)
 
-            onView(withId(R.id.BtnDashboard))
+            onView(withId(R.id.tablayout))
                 .check(matches(isDisplayed()))
 
         }

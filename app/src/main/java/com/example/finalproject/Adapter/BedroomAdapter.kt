@@ -28,6 +28,7 @@ class BedroomAdapter(
         val btnaddcard: ImageView = view.findViewById(R.id.addcard)
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BedroomViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.custom_bedroom_layout, parent, false)
@@ -41,6 +42,7 @@ class BedroomAdapter(
         holder.describe.text = bedroom.describe
         holder.size.text = bedroom.size
         holder.describe.text = bedroom.describe
+
        // val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
 
     }

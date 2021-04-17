@@ -56,8 +56,6 @@ class RegistrationActivity : AppCompatActivity(),SensorEventListener {
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
-
-
         btnAdduser.setOnClickListener {
             showLowPriorityNotification()
             val fname= Fname.text.toString()
