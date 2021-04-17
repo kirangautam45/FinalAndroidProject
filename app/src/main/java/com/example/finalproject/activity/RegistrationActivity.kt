@@ -34,7 +34,7 @@ class RegistrationActivity : AppCompatActivity(),SensorEventListener {
     private lateinit var ConfirmPassword: EditText
     private lateinit var btnAdduser: Button
     private var sensorManager: SensorManager?=null
-    private var sensor: Sensor?=null
+    private var  sensor: Sensor?=null
     private var mAccel = 0f
     private var mAccelCurrent = 0f
     private var mAccelLast = 0f

@@ -6,19 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".fragments.DashboardActivity">
 
+    <TextView
+        android:layout_width="415dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="Welcome to our Furniture"
+        android:textColor="@color/red"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="44dp"
-        android:src="@drawable/splash"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/coomingsoon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="412dp"
         android:layout_height="163dp"
         android:text="our furniture manufacturers from around the  nepal is creating a valuable exhibition hub. The export industry, as well as domestic sales with comfort and high performance, Shanghai as a trading center f or global markets makes the fair remarkable."
@@ -29,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintVertical_bias="0.908" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

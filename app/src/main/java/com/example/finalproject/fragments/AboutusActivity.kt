@@ -17,9 +17,9 @@ import com.example.finalproject.activity.OrderActivity
 
 
 class AboutusActivity : Fragment() {
-    private lateinit var btnmap:Button
+    private lateinit var btnmap: Button
     private lateinit var logout: Button
-    private lateinit var btnAddOrder:Button
+    private lateinit var btnAddOrder: Button
 
 
 
@@ -45,7 +45,8 @@ class AboutusActivity : Fragment() {
         }
 
         btnmap.setOnClickListener {
-        startActivity(Intent(activity,MapsActivity::class.java))
+
+            startActivity(Intent(activity,MapsActivity::class.java))
         }
 
         btnAddOrder.setOnClickListener {
