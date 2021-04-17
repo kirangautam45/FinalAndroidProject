@@ -35,10 +35,9 @@ class AboutusActivity : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_aboutus_activity, container, false)
+
         btnAddOrder=view.findViewById(R.id.btnAddOrder)
         btnmap=view.findViewById(R.id.btnmap)
-
-
         logout=view.findViewById(R.id.logout)
 
         logout.setOnClickListener {
@@ -48,9 +47,9 @@ class AboutusActivity : Fragment() {
         btnmap.setOnClickListener {
         startActivity(Intent(activity,MapsActivity::class.java))
         }
+
         btnAddOrder.setOnClickListener {
             startActivity(Intent(activity,OrderActivity::class.java))
-
         }
 
 
