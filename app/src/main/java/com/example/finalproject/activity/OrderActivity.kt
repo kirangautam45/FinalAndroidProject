@@ -1,5 +1,6 @@
 package com.example.finalproject.activity
 
+import android.app.NotificationChannel
 import android.content.Context
 import android.graphics.Color
 import android.hardware.Sensor
@@ -12,6 +13,8 @@ import android.support.v4.os.IResultReceiver
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.finalproject.R
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.entity.Order
@@ -51,6 +54,7 @@ class OrderActivity : AppCompatActivity(),SensorEventListener{
 
         btnOrder.setOnClickListener {
 
+
             val name = name.text.toString()
             val cost = cost.text.toString()
             val feature = featutre.text.toString()
@@ -88,6 +92,20 @@ class OrderActivity : AppCompatActivity(),SensorEventListener{
             }
         }
     }
+
+//    private fun highPriorityNotification() {
+//                    val notificationManager = NotificationManagerCompat.from(this)
+//
+//          val notificationChannels = NotificationChannel(this)
+//           notificationChannels.createNotificationChannels()
+//
+//           val notification = NotificationCompat.Builder(this,NotificationChannel. CHANNEL_1)
+//                .setSmallIcon(R.drawable.notification)
+//                .setContentTitle("High priority notification")
+//                .setColor(Color.BLUE)
+//               .build()
+//
+//    }
 
     override fun onResume() {
         super.onResume()

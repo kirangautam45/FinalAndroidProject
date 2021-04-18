@@ -1,16 +1,21 @@
 package com.example.finalproject.Adapter
 
 import android.content.Context
+import android.graphics.Color
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.api.ServiceBuilder
 import com.example.finalproject.entity.Bedroom
+import com.example.finalproject.fragments.ProductAddActivity
+import com.example.finalproject.notification.NotificationChannels
 import kotlinx.android.synthetic.main.custom_bedroom_layout.view.*
 import org.w3c.dom.Text
 
@@ -42,8 +47,12 @@ class BedroomAdapter(
         holder.describe.text = bedroom.describe
         holder.size.text = bedroom.size
         holder.describe.text = bedroom.describe
+        holder.btnaddcard.setOnClickListener{
 
-       // val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
+        }    // val image = "{${ServiceBuilder.loadImagePath()}" + { bedroom.image }
+
+
+
 
     }
 

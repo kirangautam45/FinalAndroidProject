@@ -1,6 +1,7 @@
 package com.example.finalproject.fragments
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,11 +10,14 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.get
 import com.example.finalproject.R
 import com.example.finalproject.activity.LoginActivity
 import com.example.finalproject.activity.MapsActivity
 import com.example.finalproject.activity.OrderActivity
+import com.example.finalproject.notification.NotificationChannels
 
 
 class AboutusActivity : Fragment() {
@@ -42,6 +46,7 @@ class AboutusActivity : Fragment() {
 
         logout.setOnClickListener {
             logout()
+
         }
 
         btnmap.setOnClickListener {
@@ -56,6 +61,8 @@ class AboutusActivity : Fragment() {
 
         return view
     }
+
+
     private fun logout() {
         val sharedpref =this.requireContext().getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
         val editor = sharedpref.edit()

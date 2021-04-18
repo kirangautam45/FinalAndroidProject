@@ -29,11 +29,13 @@ class RegistrationTest {
         onView(withId(R.id.Lname)).perform(closeSoftKeyboard())
             .perform(typeText("test"))
 
+        onView(withId(R.id.Address)).perform(closeSoftKeyboard())
+                .perform(typeText("ktm"))
+
         onView(withId(R.id.Phone)).perform(closeSoftKeyboard())
             .perform(typeText("123123"))
 
-        onView(withId(R.id.Address)).perform(closeSoftKeyboard())
-            .perform(typeText("ktm"))
+
 
         onView(withId(R.id.Password)).perform(closeSoftKeyboard())
             .perform(typeText("abc"))

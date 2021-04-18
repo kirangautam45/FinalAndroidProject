@@ -11,6 +11,8 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.finalproject.Adapter.ViewPagerAdapter
@@ -18,6 +20,7 @@ import com.example.finalproject.R
 import com.example.finalproject.fragments.AboutusActivity
 import com.example.finalproject.fragments.DashboardActivity
 import com.example.finalproject.fragments.ProductAddActivity
+import com.example.finalproject.notification.NotificationChannels
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import java.io.IOException
@@ -42,7 +45,7 @@ class TabActivity : AppCompatActivity(),SensorEventListener {
         sensorManager=getSystemService(Context.SENSOR_SERVICE)as SensorManager
         sensor=sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY)
 
-
+        welcome()
 
         if (!hasPermission()){
             requestPermission()
@@ -56,6 +59,21 @@ class TabActivity : AppCompatActivity(),SensorEventListener {
         TabLayoutMediator(tabLayout,viewpager){tab,position ->
             tab.text=lstTitle[position]
         }.attach()
+    }
+
+    private fun welcome() {
+        val notificationManager = NotificationManagerCompat.from(this)
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+                .setSmallIcon(R.drawable.notification)
+                .setContentTitle("User login")
+                .setContentText("user has been successfully login")
+                .setColor(Color.BLUE)
+                .build()
+
+        notificationManager.notify(1, notification)
     }
 
     private fun productlist() {
@@ -119,4 +137,6 @@ class TabActivity : AppCompatActivity(),SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
     }
+
+
 }
